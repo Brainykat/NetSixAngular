@@ -20,6 +20,15 @@ export class ShowInspectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.inspectionList$ = this.service.getInspectionList();
+    this.refreshInspectionTypeMap();
   }
 
+  refreshInspectionTypeMap(){
+    this.service.getInspectionTypesList().subscribe(data => {
+      this.inspectionTypeList = data;
+      for (let i = 0; i < data.length; i++) {
+        this.inspectionTypesMap.set(this.inspectionTypeList[i].id,this.inspectionTypeList[i].inspectionName);
+      }
+    })
+  }
 }

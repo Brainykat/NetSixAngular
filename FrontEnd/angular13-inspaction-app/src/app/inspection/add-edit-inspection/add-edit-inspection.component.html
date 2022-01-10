@@ -8,4 +8,16 @@
             <option *ngFor="let type of inspectionTypesList$|async" [value]="type.id">{{type.inspectionName}}</option>
         </select>
     </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select name="status" id="status" [(ngModel)]="status" class="form-control">
+            <option *ngFor="let status of statusList$|async" [value]="status.statusOption">{{status.statusOption}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="comments" class="form-label">Comments</label>
+        <input type="text" class="form-control" [(ngModel)]="comments" name="comments" placeholder="add a comment">
+    </div> 
+    <button type="button" (click)="addInspection()" *ngIf="inspection.id==null" class="btn btn-primary float-end">Add</button> 
+    <button type="button" (click)="updateInspection()" *ngIf="inspection.id!=null" class="btn btn-primary float-end">Update</button> 
 </form>

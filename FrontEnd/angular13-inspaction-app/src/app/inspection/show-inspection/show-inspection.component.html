@@ -24,7 +24,15 @@ data-bs-target="#staticBackdrop" (click)="modalAdd()">
     </tbody>
 </table>
 
-
+<div class="alert alert-success" role="alert" id="add-success-alert">
+  Inspection Successfuly Added!
+</div>
+<div class="alert alert-success" role="alert" id="update-success-alert">
+  Inspection Successfuly Updated!
+</div>
+<div class="alert alert-success" role="alert" id="delete-success-alert">
+  Inspection Successfuly Deleted!
+</div>
 
   
   <!-- Modal -->
@@ -33,7 +41,9 @@ data-bs-target="#staticBackdrop" (click)="modalAdd()">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">{{modalTitle}}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="modalClose()" id="add-edit-modal-close"
+          ></button>
         </div>
         <div class="modal-body">
           <app-add-edit-inspection [inspection]="inspection" *ngIf="activateAddEditInspectionComponent"></app-add-edit-inspection>
